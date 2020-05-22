@@ -2,7 +2,7 @@
 	<%- partial('_common/social', null, {cache: !config.relative_link}) %>
     <div class="copyright">
     	<% if(theme.site.copyright) { %>
-        &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>
+        &copy; 2020 - <%= date(new Date(), 'YYYY') %>  by <%= config.author || config.title %> 鄂ICP备18022630号-1
         <% } %>
         <div class="publishby">
         	<%= __('copyright.theme_by') %> <a href="https://github.com/yuchiXiong" target="_blank"> yuchi </a><%= __('copyright.base_on') %> hero & pure.
