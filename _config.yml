@@ -5,15 +5,15 @@
 # Site
 title: '鱼翅是个周口店人'
 subtitle: '鱼翅的个人博客'
-description: '大家好我是鱼翅，这是我的个人博客'
-keywords:
+description: '鱼翅, 鱼翅是个周口店人, 鱼翅的个人博客'
+keywords: '开源, 代码分享, 代码, 前端, JavaScript, Ruby'
 author: 鱼翅
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://www.xiongyuchi.top
+url: https://www.xiongyuchi.top
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
