@@ -2,7 +2,7 @@
 title: Rails test等命令卡死常用的解决方案
 date: 2020-05-22 21:03:25
 tags:
-  - rails
+  - Rails
 ---
 # 1. 问题描述
 之前配合测试的实习生跑 `TeamCity` 时发现写好的 `rails test` 经常构建超时，上了测试服务器试了一下发现运行 `rails test` 会卡死，同时包含 `rails c/rails g` 等命令一样会卡死。
