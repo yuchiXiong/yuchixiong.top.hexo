@@ -4,6 +4,8 @@ date: 2020-05-22 21:34:12
 tags:
   - Rails
   - MySQL
+categories:
+  - Rails踩坑记录
 ---
 # 1. 问题描述
 本周将数据由 `PSQL` 迁移到了 `MySQL`，在迁移顺利之行之后，于周三进行了一个小规模的 `BUG` 修复，为修复数据表中的错误，增加了4个 `migration` 文件，运行如下指令:

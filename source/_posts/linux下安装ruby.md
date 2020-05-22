@@ -3,6 +3,8 @@ title: linux下安装ruby
 date: 2020-05-22 14:42:28
 tags: 
   - Ruby
+categories:
+  - 菜鸡的Ruby之旅
 ---
 
 # 1. 安装 rvm
