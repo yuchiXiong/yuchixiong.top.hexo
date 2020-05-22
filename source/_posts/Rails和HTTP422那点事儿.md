@@ -4,7 +4,7 @@ date: 2020-05-22 20:37:00
 tags: 
   - rails
 ---
-# 1. 事件复盘
+# 1. 问题描述
 用 `Ruby on Rails` 开发点接口的时候遇到了HTTP422问题。回去看了眼公司的项目，发现在 `environments` 里写了一句这个：
 ~~~ ruby
 config.action_controller.allow_forgery_protection = false
