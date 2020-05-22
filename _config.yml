@@ -103,6 +103,5 @@ theme: dawn
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo:
-    coding: https://e.coding.net/muteki-gamer/yuchi_blog.git
+  repo: https://e.coding.net/muteki-gamer/yuchi_blog.git
   branch: git_pages
