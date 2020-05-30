@@ -106,3 +106,8 @@ deploy:
   type: git
   repo: https://e.coding.net/muteki-gamer/yuchi_blog.git
   branch: git_pages
+
+
+permalink_pinyin:
+  enable: true
+  separator: '-'
