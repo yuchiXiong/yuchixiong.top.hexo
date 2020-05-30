@@ -5,4 +5,5 @@ layout: about
 comments: false
 sidebar: custom
 ---
-个人详细介绍
+菜鸡前端，Rubist，特摄厨。
+我的看云：http://docs.xiongyuchi.top/
