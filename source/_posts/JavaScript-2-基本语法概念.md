@@ -117,7 +117,7 @@ var obj_2 = new Object();
 ## 6.1 arguments
 函数体内可以使用 `arguments` 来获取参数数组，不过需要注意的是，它虽然可以使用下标的方式获取到元素，但其实并不是数组。
 ~~~ JavaScript
-function print_args (a,b,c,e){
+function print_args (a,b,c,e) {
   console.log(arguments[0], arguments[1], arguments[2]);
 }
 
