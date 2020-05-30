@@ -111,3 +111,8 @@ deploy:
 permalink_pinyin:
   enable: true
   separator: '-'
+
+# sitemap:
+#   path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
