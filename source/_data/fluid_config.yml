@@ -390,11 +390,11 @@ links:
       title: '游戏开发什么的最棒了~~',
       intro: '#unity #游戏开发',
       link: 'https://hajimeru.github.io/',
-      image: '/images/favatar/在家面壁.jpg'
+      image: '/img/favatar/在家面壁.jpg'
     }
     - {
       title: '碱客',
       intro: '#冷漠乌鸦 #博客园',
       link: 'http://111.229.221.148:5000/index',
-      image: '/images/favatar/default.gif'
+      image: '/img/favatar/default.gif'
     }
