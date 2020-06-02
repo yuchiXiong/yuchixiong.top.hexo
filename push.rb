@@ -1,7 +1,7 @@
 require 'net/http'
 
 urls = [
-    'https://xiongyuchi.top/', 
+    'https://www.xiongyuchi.top/', 
     'https://www.xiongyuchi.top/2020/05/30/javascript-3-bian-liang-zuo-yong-yu-he-nei-cun-wen-ti/',
     'https://www.xiongyuchi.top/2020/05/23/javascript-2-ji-ben-yu-fa-gai-nian/',
     'https://www.xiongyuchi.top/2020/05/23/javascript-1-zai-html-zhong-shi-yong-javascript/',
