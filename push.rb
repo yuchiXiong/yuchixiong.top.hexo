@@ -14,6 +14,8 @@ require 'net/http'
 # ]
 
 urls = [
+    'https://www.xiongyuchi.top/2020/06/08/javascript-5-mian-xiang-dui-xiang-de-cheng-xu-she-ji/',
+    'https://www.xiongyuchi.top/2020/06/04/javascript-4-yin-yong-lei-xing/',
     'https://www.xiongyuchi.top/2020/05/30/javascript-3-bian-liang-zuo-yong-yu-he-nei-cun-wen-ti/',
     'https://www.xiongyuchi.top/about/index.html/',
     'https://www.xiongyuchi.top/2020/05/23/javascript-2-ji-ben-yu-fa-gai-nian/',

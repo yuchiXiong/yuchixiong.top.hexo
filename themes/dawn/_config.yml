@@ -189,7 +189,7 @@ profile:
   avatar: images/avatar.jpg
   gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
   author: 鱼翅是个周口店人
-  author_title: Web前端 & Rubist
+  author_title: Web前端 & Rubyer
   author_description: 鱼翅/布布，一个沙雕Web搬瓦工。
   location: WuHan, China
   follow: https://github.com/yuchiXiong

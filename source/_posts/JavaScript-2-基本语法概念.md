@@ -101,7 +101,7 @@ console.log('\n'.length);
 如下代码都是合法的变量定义，但后者并不是推荐的语法。
 ~~~ JavaScript
 var obj_1 = new Object();
-var obj_2 = new Object();
+var obj_2 = new Object;
 ~~~
 
 # 4. 操作符
