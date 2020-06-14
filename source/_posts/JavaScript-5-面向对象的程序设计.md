@@ -365,5 +365,158 @@ person.sayName();
 上述代码示例的 `person` 对象将无法直接访问 `name` 属性。这样的代码会更安全。
 
 # 3. 继承
+继承是面向对象中的一个重要概念。`JavaScript` 的继承要从原型链开始说起。
 
 ## 3.1 原型链
+在上一节中我们说过，每一个函数都有一个 `prototype` 指针指向了构造函数的原型对象，每个实例同样有个 `[[Prototype]]` 指针指向了它的构造函数的原型对象。
+当我们使一个对象的原型对象等于另一个类型的实例时，就行成了一种原型相互指向的链式结构，这就是原型链。
+~~~JavaScript
+function SuperType() {
+    this.superName = 'super name';
+}
+
+function SubType() {
+    this.subName = 'sub name';
+}
+
+SuperType.prototype.saySuperName = function () {
+    console.log(this.superName);
+};
+
+SubType.prototype = new SuperType();
+
+SubType.prototype.saySubName = function () {
+    console.log(this.subName);
+};
+
+var subType = new SubType();
+subType.saySuperName();
+subType.saySubName();
+~~~
+如上代码实现了一个简单的继承，`subType` 不仅可以调用自己的方法 `saySubName` ，还可以通过原型链调用 `saySuperName` 方法。同时要注意，现在 `subType` 的 `constructor` 指向了 `SuperType` 构造函数。
+确定原型和实例的关系依然可以使用 `instanceof` 或者 `isPrototypeOf` 方法，由于原型链的关系，只要当前实例的原型链上出现了将要判断的原型，就会返回 `true` 。
+~~~JavaScript
+console.log(subType instanceof Object);
+console.log(subType instanceof SubType);
+console.log(subType instanceof SuperType);
+
+console.log(Object.prototype.isPrototypeOf(subType));
+console.log(SubType.prototype.isPrototypeOf(subType));
+console.log(SuperType.prototype.isPrototypeOf(subType));
+~~~
+上面的代码都会返回 `true` 。
+另外需要注意，对子类型添加方法的操作需要放在修改子类型原型对象之后，否则子类型的新方法将会被覆盖掉。同样的，对子类型添加方法时也不可以使用对象字面量。
+使用原型链虽然可以实现继承，但原型链实际存在如下问题：
+- 所有子类型的属性都来源与超类型的实例，引用类型会共享。
+- 创建子类型时无法向父类型进行参数扩展。
+
+## 3.2 借用构造函数
+所谓借用构造函数，就是在子类型中去调用超类型的构造函数，而非直接使用超类构造函数定义的属性。
+~~~ JavaScript
+function SuperType(arr) {
+    this.arr = arr;
+}
+
+function SubType(arr, title) {
+    SuperType.call(this, arr);
+    this.title = title;
+}
+
+var subType = new SubType([1, 2, 3, 4], 'oo');
+~~~
+上述代码中，我们在子类型的构造函数上执行了父类型的构造函数，同时在子类型构造函数里抽象了对应的参数传递入口，解决了上一小节中提到的问题。
+
+## 3.3 组合继承
+我们在使用构造函数定义对象的章节曾经提到，使用构造函数定义对象时，每一个实例上的同名方法都是不同的，此处使用构造函数实现的继承一样存在这个问题。并且如果使用这种方式实现继承，定义在超类型的原型上的方法将无法继承到子类型上，因而我们将使用两者结合的组合继承。
+组合继承类似于前面提到的组合使用构造函数模式和原型模式，即借用构造函数方法来继承属性，而后使用原型链来继承方法。
+~~~JavaScript
+function SuperType(arr) {
+    this.arr = arr;
+}
+
+SuperType.prototype.sayArr = function () {
+    console.log(this.arr);
+}
+
+function SubType(arr, title) {
+    SuperType.call(this, arr);
+    this.title = title;
+}
+
+SubType.prototype = new SuperType();
+
+var subType1 = new SubType([1, 2, 3, 4], 'oo1');
+var subType2 = new SubType([2, 3, 4, 5], 'oo2');
+
+subType1.arr.push(200);
+
+console.log(subType1.arr);
+console.log(subType2.arr);
+console.log(subType1.sayArr());
+console.log(subType2.sayArr());
+~~~
+像这样修改了代码之后，我们可以使用父类型的方法了，这也是一种比较常见的实现继承的方式。
+
+## 3.4 原型式继承
+原型式继承使用如下格式进行来基于一个已有的对象创建一个类似的，新的对象：
+~~~JavaScript
+function object(o) {
+    function F() { }
+    F.prototype = o;
+    return new F();
+}
+~~~
+在 `ECMA Script5` 中定义了 `Object.create` 方法用来实现同样的操作。
+这样的方式实现的继承和原型链继承一样，引用类型的数据会在多个实例间共享。
+
+## 3.5 寄生式继承
+寄生式继承是原型式继承的延续，它使用一个函数来对继承的子类型进行扩展。
+~~~JavaScript
+function createObject(o) {
+    var clone = object(o);
+    clone.sayHi = function () {
+        console.log('hi');
+    }
+    return clone;
+}
+~~~
+
+## 3.6 寄生组合式继承
+组合继承存在一个问题，即使用组合继承会调用两次超类型的构造函数（第一次在修改子类型的原型对象，第二次在实例化时）。
+我们可以使用寄生组合式继承来解决这个问题：
+~~~JavaScript
+function SuperType(name) {
+    this.name = name;
+    this.colors = ['red', 'blue', 'green'];
+}
+
+SuperType.prototype.sayName = function () {
+    alert(this.name);
+}
+
+function SubType(name, age) {
+    SuperType.call(this, name);
+    this.age = age;
+}
+
+inheritPrototype(SubType, SuperType);
+
+SubType.prototype.sayAge = function () {
+    alert(this.age);
+}
+
+function inheritPrototype(subType, superType) {
+    var prototype = object(superType.prototype);
+    prototype.constructor = subType;
+    subType.prototype = prototype;
+}
+
+function object(o) {
+    function F() { }
+    F.prototype = o;
+    return new F();
+}
+~~~
+在上述的代码中，我们使用了寄生组合式来实现继承。
+在组合继承中，为了继承父类型的方法，我们第一次调用了父类型的构造函数以获取父类型实例，进而使子类型的原型能够指向父类型。而后继承属性的时候我们实则又调用了一次父类型的构造函数，用于将其绑定到子类型上。
+我们不难看出，在组合继承中我们只是希望获得父类型的方法，属性我们另外使用了借用构造函数的技巧来继承。因而在寄生组合式继承里我们直接选择了绕开调用父类型构造函数的过程，直接使用原型式继承的方式获取了一个和父类型原型相似的对象，并将该对象直接赋值给子类型的原型对象实现原型链继承，当然了在这个过程中我们还可以修改原型链继承中导致的子类型 `constructor` 丢失。
