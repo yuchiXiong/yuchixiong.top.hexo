@@ -14,6 +14,11 @@ require 'net/http'
 # ]
 
 urls = [
+    'https://www.xiongyuchi.top/2020/06/21/zai-rails-li-shi-yong-mongodb/',
+    'https://www.xiongyuchi.top/2020/06/21/node-rsa-yu-ruby-openssl-de-yi-dian-wen-ti/',
+    'https://www.xiongyuchi.top/2020/06/17/xiao-qiang-sheng-zhi-ji-yi-ben-bei-ming-zi-dan-ge-de-shi-jian-guan-li-bao-dian/',
+    'https://www.xiongyuchi.top/2020/06/15/javascript-6-han-shu-biao-da-shi/',
+    'https://www.xiongyuchi.top/2020/06/11/ba-shi-pin-ruby-pa-chong-chu-tan/',
     'https://www.xiongyuchi.top/2020/06/08/javascript-5-mian-xiang-dui-xiang-de-cheng-xu-she-ji/',
     'https://www.xiongyuchi.top/2020/06/04/javascript-4-yin-yong-lei-xing/',
     'https://www.xiongyuchi.top/2020/05/30/javascript-3-bian-liang-zuo-yong-yu-he-nei-cun-wen-ti/',
@@ -34,7 +39,7 @@ urls = [
     'https://www.xiongyuchi.top/404.html'
 ]
 
-uri = URI.parse('http://data.zz.baidu.com/urls?site=https://www.xiongyuchi.top&token=DvZkCgrHlG96xLwD')
+uri = URI.parse('http://data.zz.baidu.com/urls?site=https://www.xiongyuchi.top&token=UaRw3BALTcFXNgeA')
 
 req = Net::HTTP::Post.new(uri.request_uri)
 
