@@ -14,6 +14,7 @@ require 'net/http'
 # ]
 
 urls = [
+    'https://www.xiongyuchi.top/2020/07/12/zhe-ke-neng-shi-zui-quan-zui-xi-jie-de-rails-huan-jing-da-jian-xiang-dao-liao-ji-yu-rvm/',
     'https://www.xiongyuchi.top/2020/06/21/zai-rails-li-shi-yong-mongodb/',
     'https://www.xiongyuchi.top/2020/06/21/node-rsa-yu-ruby-openssl-de-yi-dian-wen-ti/',
     'https://www.xiongyuchi.top/2020/06/17/xiao-qiang-sheng-zhi-ji-yi-ben-bei-ming-zi-dan-ge-de-shi-jian-guan-li-bao-dian/',
